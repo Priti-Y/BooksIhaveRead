@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs'); -%>
+<body>
+    <div class="container">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <h1 class="display-5 lh-1 mb-3" style="text-decoration: underline;color: blue"><%=review.title%> - by <%=review.author%></h1>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://covers.openlibrary.org/b/isbn/<%=review.isbn%>.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="250" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                
+                <h5>Date Read: <%=review.date_read_on%></h5>
+                <h5>Rating <%=review.rating%>/10 </h5></br>
+                <p class="lead"><%=review.description%> </p>
+            </div>
+            <div class="col-lg-6">
+                <p class="lead"><%=review.notes%> </p>
+            </div>
+        </div>
+    </div>  
+</body>
