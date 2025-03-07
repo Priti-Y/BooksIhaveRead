@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs'); -%>
+<body style="background-image: url('../images/5.jpg')";>
+    <div class="container">
+        <form method="post" action="/edit/<%=review.id%>">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <h1 class="display-5 lh-1 mb-3" style="text-decoration: underline;color: black"><%=review.title%> - by <%=review.author%></h1>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://covers.openlibrary.org/b/isbn/<%=review.isbn%>.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="250" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                
+                <h5>Date Read: <%=review.date_read_on%></h5>
+                <% if (mode == 'view') { %>
+                    <h5>Rating <%=review.rating%>/10 </h5></br>
+                <% } else { %>
+                    <h5><label name="RatingLabel">Rating</label> <input type="text" name="Rating" value=<%=review.rating%>></h5>
+                <%}%>
+                <h5>ISBN : <%=review.isbn%>/10 </h5></br>
+                <p class="lead" style="font-weight: 400;"><%=review.description%> </p>
+            </div>
+           
+        </div>
+        <h5><label name="notesLabel">Notes: </label> 
+        <% if (mode == 'edit') { %>
+            <textarea id="editor" name="notes" rows="100" cols="100">
+                <%=review.notes%><%=mode%>
+            </textarea>
+            <br>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        <% }  else { %>
+                <p class="lead" style="font-weight: 400;"><%=review.notes%> </p>   
+        <% } %>
+    </form>
+    </div> 
+</body>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

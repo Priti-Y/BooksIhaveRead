@@ -1,20 +1,17 @@
-<%- include('partials/header.ejs'); -%>
-<body>
-    <div class="container">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <h1 class="display-5 lh-1 mb-3" style="text-decoration: underline;color: blue"><%=review.title%> - by <%=review.author%></h1>
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="https://covers.openlibrary.org/b/isbn/<%=review.isbn%>.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="250" height="500" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                
-                <h5>Date Read: <%=review.date_read_on%></h5>
-                <h5>Rating <%=review.rating%>/10 </h5></br>
-                <p class="lead"><%=review.description%> </p>
-            </div>
-            <div class="col-lg-6">
-                <p class="lead"><%=review.notes%> </p>
-            </div>
-        </div>
-    </div>  
-</body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="/styles/main.css">
+<body class="d-flex h-100 text-center text-bg-dark">     
+    <div class="cover-container w-100 h-100 p-3 mx-auto flex-column">
+        <%- include("partials/header.ejs") %>
+        <h1 class="heading-align text-dark">Add Book  </h1>
+        <form method="post" action="/create">
+          <input name="title" type="text" class="feedback-input" placeholder="Title" /></br>
+          <textarea name="description" type="text" class="feedback-input" placeholder="Description"></textarea></br>
+          <input name="author" type="text" class="feedback-input" placeholder="Author" /></br>
+          <input name="isbn" type="text" class="feedback-input" placeholder="ISBN" /></br>
+          <input name="date" type="date" class="feedback-input" placeholder="Book Read On"/></br>
+          <input name="rating" type="text" class="feedback-input" placeholder="Rating/10" /></br>
+          <textarea name="notes" type="text" class="feedback-input" placeholder="Notes"></textarea></br>
+          <input type="submit" value="SUBMIT" /></br>
+        </form>
+    </div>
